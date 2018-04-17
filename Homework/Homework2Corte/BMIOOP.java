@@ -4,64 +4,82 @@ Israel David Salinas Lopez
 This class calculates the body Mass Index
 ******/
 import javax.swing.JOptionPane;
-public class BMIOOP{
-//properities
-private String name;
-private int age;
-private double weigth;//in pounds
-private double height;// in inches
-private final double KILOGRAMS_PER_POUND = 0.45359237;
-private final double METERS_PER_INCH = 0.0254;
+public class BMIOOP
+{
+  private String name;
+  private int age;
+  private double weigth;
+  private double heigth;
+  private final double KILOGRAMS_PERPOUND=0.45359237;
+  private final double METERS_PER_INCH=0.0254;
+  private double bmi;
 
-
-//methods
-  public void setName(String name){
-  this.name = name;
+  //methods-Actions
+  public void setName(String name)
+  {
+    this.name=name;
   }
-  public String getName(){
-  return this.name;
+  public String getName()
+  {
+    return this.name;
   }
-  public void setAge(int age){
-  this.age = age;
+  public void setAge(int age)
+  {
+    this.age=age;
   }
-  public int setAge(){
-  return this.age;
+  public int getAge()
+  {
+    return this.age;
   }
-  public void setHeight(double age){
-  return this.height;
+  public void setWeigth(Double weigth)
+  {
+    this.weigth=weigth;
   }
-  public void setHeight(int age){
-  return this.height;
+  public Double getWeigth()
+  {
+    return this.weigth;
   }
-  public void setWeigth(double age){
-  return this.weigth;
+  public void setHeigth(Double heigth)
+  {
+    this.heigth=heigth;
   }
-  public void setWeigth(int age){
-  return this.weigth;
-
-  public double getbmi(){
-  double bmi = this.weigth* KILOGRAMS_PER_POUND/ ((this.height * METERS_PER_INCH))*(this.height * METERS_PER_INCH);
-  return Math.round(bmi *100)/100;
+  public Double getHeigth()
+  {
+    return this.heigth;
   }
-  weight = Float.parseFloat(JOptionPane.showInputDialog("Enter your weight in prounds"));
-  height = Float.parseFloat(JOptionPane.showInputDialog("Enter your height in inches"));
-
-  double weightInKilograms = weight * KILOGRAMS_PER_POUND;
-  double heightInMeters = height * METERS_PER_INCHES;
-
-  double bmi = weightInKilograms / (Math.pow(heightInMeters,2));
-  if (bmi < 16) {
-    JOptionPane.showMessageDialog(null,"You are seriously underweight");
-  }else if (bmi < 18) {
-    JOptionPane.showMessageDialog(null,"Your are underweight");
-  }else if (bmi < 24) {
-    JOptionPane.showMessageDialog(null,"You are normal weight ");
-  }else if (bmi < 29) {
-    JOptionPane.showMessageDialog(null,"Your are over weight ");
-  }else if (bmi < 35) {
-    JOptionPane.showMessageDialog(null,"You are seriously Overweight");
-  }else {
-    JOptionPane.showMessageDialog(null,"You are gravely Overweight");
-  }//end if
-}//end main
-}//end BMI.java
+  public double getBmi()
+  {
+    double bmi=this.weigth*KILOGRAMS_PERPOUND/((this.heigth*METERS_PER_INCH)*(this.heigth*METERS_PER_INCH));
+    return Math.round(bmi*100)/100;
+  }
+  //metohd to evaluate BMI and return a message
+  public String getStatus()
+  {
+    double bmi= getBmi();
+    if (getBmi()<16)
+    {
+      JOptionPane.showMessageDialog(null, getName() + " At your " + getAge() + " years \nYou are seriously underweight" , "result" , JOptionPane.ERROR_MESSAGE);
+    }
+    else if (getBmi()<18)
+    {
+      JOptionPane.showMessageDialog(null, getName() + " At your " + getAge() + " years \nYou are underweight" , "result" , JOptionPane.ERROR_MESSAGE);
+    }
+    else if (getBmi()<24)
+    {
+      JOptionPane.showMessageDialog(null, getName() + " At your " + getAge() + " years \nYou are normal weight" , "result" , JOptionPane.ERROR_MESSAGE);
+    }
+    else if (getBmi()<29)
+    {
+      JOptionPane.showMessageDialog(null, getName() + " At your " + getAge() + " years \nYou are overweight" , "result" , JOptionPane.ERROR_MESSAGE);
+    }
+    else if (getBmi()<35)
+    {
+      JOptionPane.showMessageDialog(null, getName() + " At your " + getAge() + " years \nYou are  seriusly overweight" , "result" , JOptionPane.ERROR_MESSAGE);
+    }
+    else
+    {
+      JOptionPane.showMessageDialog(null, getName() + " At your " + getAge() + " years \nYou are gravely overweight" , "result" , JOptionPane.ERROR_MESSAGE);
+    }
+    return getName();
+  }
+}
